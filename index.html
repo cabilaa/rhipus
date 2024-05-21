@@ -11,98 +11,217 @@
 </head>
 
 <body>
+  <div class="back-layer position-fixed"></div>
+  <!-- FLOATING PROFILE MENU -->
+  <div class="floating-menu position-fixed top-0 end-0">
+    <div class="d-flex flex-column gap-3 bg-white p-4 pe-5 shadow rounded">
+      <div class="d-flex align-items-center gap-3">
+        <img src="assets/img/profill.png" alt="" class="img-fluid" width="40">
+        <h5 class="m-0 fw-bold">Lihat profil</h5>
+      </div>
+      <div class="d-flex align-items-center gap-3">
+        <img src="assets/img/profill.png" alt="" class="img-fluid" width="40">
+        <h5 class="m-0 fw-bold">Pengaturan</h5>
+      </div>
+    </div>
+  </div>
 
-  <!-- <header >
-    <div class="logo">
-      <a href="#">
-        <img src="assets/img/rhipuslogo.png" width="97px" height="96px">
-      </a>
-    </div>
-    <div class="beranda">
-      <lu>Beranda</lu>
-
-    </div>
-    <div class="profil d-flex ">
-      <img src="assets/img/profill.png">
-      Bimo DIY
-    </div>
-  </header> -->
+  <!-- HEADER -->
   <nav class="navbar navbar-expand-lg p-0">
     <div class="container">
       <div class="d-flex w-100 align-items-center justify-content-between">
         <img src="assets/img/logoo.png" alt="" class="img-fluid" width="80">
         <a href="#" class="nav-link-beranda text-dark text-decoration-none fs-5 py-3">Beranda</a>
-        <a href="#" class="d-flex align-items-center gap-2 text-decoration-none">
+        <a id="profileBtn" class="d-flex align-items-center gap-2 text-decoration-none">
           <img src="assets/img/profill.png" alt="" class="img-fluid">
           <small class="text-dark fs-5">Bimo DIY</small>
         </a>
       </div>
     </div>
   </nav>
+  <!-- END HEADER -->
 
-  <div class="search-container">
-    <input type="text" placeholder="Telusuri" class="search-input">
-    <button class="search-button">
-      <img src="assets/img/search.png" alt="Search Icon">
-    </button>
-  </div>
+  <!-- MAIN -->
+  <main class="container">
 
-  <nav class="button">
-    <button class="semua">Semua</button>
-  </nav>
-
-  <table>
-    <tr>
-      <td>
-        <iframe width="390" height="248" src="https://www.youtube.com/embed/MqcjUWwCsFg?si=bDAwg1F1W8cmuuIq"></iframe>
-
-      </td>
-      <td>
-        <iframe width="390" height="248" src="https://www.youtube.com/embed/yABjo-it1fI?si=qdJcW3ITfpT35JMo"></iframe>
-      </td>
-      <td>
-        <iframe width="390" height="248" src="https://www.youtube.com/embed/oTVlH2TTh9Y?si=uR-8LJneKzHqD8Mm"></iframe>
-      </td>
-    </tr>
-    <td>
-      <iframe width="390" height="248" src="https://www.youtube.com/embed/-fvlyHqSbZQ?si=wW6xXgPmZZH_QY_t"></iframe>
-    </td>
-
-
-
-
-  </table>
-
-
-
-
-  </main>
-
-  <footer>
-    <title>Responsive footer</title>
-
-    <body>
-      <footer class="Footer">
-        <div class="footer-left">
-          <h3>About Us</h3>
-          <h4>Pada situs web ini kami akan berbagi totorial pengelolahan sampah yang</h4>
-          <h5>bisa di daur ulang kembali, untuk menjadi hiasan ataupun kerajinanz</h5>
-          <h6>bertujuan mengurangi pencemaran sampah di indonesia dan menyelamatkan bumi.</h6>
-          <div class="credit-cards">
-            <img src="">
-            <img src="">
-            <img src="">
-          </div>
-          <p class="footer-copyright">© 2024 Riphus. All Rights Reserved.</p>
+    <div class="search-container mt-4 pt-4 sticky-top bg-white">
+      <form>
+        <div class="mb-3 position-relative w-50 mx-auto">
+          <input type="text" class="form-control rounded-pill pe-5" placeholder="Telusuri">
+          <button>
+            <img src="assets/img/search.png" alt="" class="position-absolute top-0 end-0 img-fluid" width="57">
+          </button>
         </div>
+      </form>
+    </div>
 
-      </footer>
-    </body>
+    <div class="button mb-4">
+      <button class="semua fw-bold px-2 py-1 rounded">Semua video</button>
+    </div>
+
+    <div class="row g-5 justify-content-center">
+      <div class="col-4 image-card py-4">
+        <!-- <iframe class="w-100 rounded-4" height="230" src="https://www.youtube.com/embed/MqcjUWwCsFg?si=bDAwg1F1W8cmuuIq"></iframe> -->
+        <img src="assets/img/pop mie.png" alt="" class="img-fluid">
+        <div class="d-flex align-items-start gap-3 mt-2">
+          <img src="assets/img/profill.png" alt="" class="img-fluid" width="45">
+          <div>
+            <p class="fw-bold m-0 mt-2">POP MIE BISA JADI AESTHETIC?</p>
+            <small class="text-secondary fw-bold d-block">cabila foryou</small>
+            <small class="text-secondary fw-bold">5rb ditonton - 1 hari yang lalu</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-4 image-card py-4">
+        <img src="assets/img/pop mie.png" alt="" class="img-fluid">
+        <div class="d-flex align-items-start gap-3 mt-2">
+          <img src="assets/img/profill.png" alt="" class="img-fluid" width="45">
+          <div>
+            <p class="fw-bold m-0 mt-2">POP MIE BISA JADI AESTHETIC?</p>
+            <small class="text-secondary fw-bold d-block">cabila foryou</small>
+            <small class="text-secondary fw-bold">5rb ditonton - 1 hari yang lalu</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-4 image-card py-4">
+        <img src="assets/img/pop mie.png" alt="" class="img-fluid">
+        <div class="d-flex align-items-start gap-3 mt-2">
+          <img src="assets/img/profill.png" alt="" class="img-fluid" width="45">
+          <div>
+            <p class="fw-bold m-0 mt-2">POP MIE BISA JADI AESTHETIC?</p>
+            <small class="text-secondary fw-bold d-block">cabila foryou</small>
+            <small class="text-secondary fw-bold">5rb ditonton - 1 hari yang lalu</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-4 image-card py-4">
+        <img src="assets/img/pop mie.png" alt="" class="img-fluid">
+        <div class="d-flex align-items-start gap-3 mt-2">
+          <img src="assets/img/profill.png" alt="" class="img-fluid" width="45">
+          <div>
+            <p class="fw-bold m-0 mt-2">POP MIE BISA JADI AESTHETIC?</p>
+            <small class="text-secondary fw-bold d-block">cabila foryou</small>
+            <small class="text-secondary fw-bold">5rb ditonton - 1 hari yang lalu</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-4 image-card py-4">
+        <img src="assets/img/pop mie.png" alt="" class="img-fluid">
+        <div class="d-flex align-items-start gap-3 mt-2">
+          <img src="assets/img/profill.png" alt="" class="img-fluid" width="45">
+          <div>
+            <p class="fw-bold m-0 mt-2">POP MIE BISA JADI AESTHETIC?</p>
+            <small class="text-secondary fw-bold d-block">cabila foryou</small>
+            <small class="text-secondary fw-bold">5rb ditonton - 1 hari yang lalu</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-4 image-card py-4">
+        <img src="assets/img/pop mie.png" alt="" class="img-fluid">
+        <div class="d-flex align-items-start gap-3 mt-2">
+          <img src="assets/img/profill.png" alt="" class="img-fluid" width="45">
+          <div>
+            <p class="fw-bold m-0 mt-2">POP MIE BISA JADI AESTHETIC?</p>
+            <small class="text-secondary fw-bold d-block">cabila foryou</small>
+            <small class="text-secondary fw-bold">5rb ditonton - 1 hari yang lalu</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-4 image-card py-4">
+        <img src="assets/img/pop mie.png" alt="" class="img-fluid">
+        <div class="d-flex align-items-start gap-3 mt-2">
+          <img src="assets/img/profill.png" alt="" class="img-fluid" width="45">
+          <div>
+            <p class="fw-bold m-0 mt-2">POP MIE BISA JADI AESTHETIC?</p>
+            <small class="text-secondary fw-bold d-block">cabila foryou</small>
+            <small class="text-secondary fw-bold">5rb ditonton - 1 hari yang lalu</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-4 image-card py-4">
+        <img src="assets/img/pop mie.png" alt="" class="img-fluid">
+        <div class="d-flex align-items-start gap-3 mt-2">
+          <img src="assets/img/profill.png" alt="" class="img-fluid" width="45">
+          <div>
+            <p class="fw-bold m-0 mt-2">POP MIE BISA JADI AESTHETIC?</p>
+            <small class="text-secondary fw-bold d-block">cabila foryou</small>
+            <small class="text-secondary fw-bold">5rb ditonton - 1 hari yang lalu</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-4 image-card py-4">
+        <img src="assets/img/pop mie.png" alt="" class="img-fluid">
+        <div class="d-flex align-items-start gap-3 mt-2">
+          <img src="assets/img/profill.png" alt="" class="img-fluid" width="45">
+          <div>
+            <p class="fw-bold m-0 mt-2">POP MIE BISA JADI AESTHETIC?</p>
+            <small class="text-secondary fw-bold d-block">cabila foryou</small>
+            <small class="text-secondary fw-bold">5rb ditonton - 1 hari yang lalu</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <table>
+      <tr>
+        <td>
+          <iframe width="390" height="248" src="https://www.youtube.com/embed/MqcjUWwCsFg?si=bDAwg1F1W8cmuuIq"></iframe>
+        </td>
+        <td>
+          <iframe width="390" height="248" src="https://www.youtube.com/embed/yABjo-it1fI?si=qdJcW3ITfpT35JMo"></iframe>
+        </td>
+        <td>
+          <iframe width="390" height="248" src="https://www.youtube.com/embed/oTVlH2TTh9Y?si=uR-8LJneKzHqD8Mm"></iframe>
+        </td>
+      </tr>
+      <td>
+        <iframe width="390" height="248" src="https://www.youtube.com/embed/-fvlyHqSbZQ?si=wW6xXgPmZZH_QY_t"></iframe>
+      </td>
+    </table> -->
+  </main>
+  <!-- END MAIN -->
+
+  <!-- FOOTER -->
+  <footer class="py-5 mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-3">
+
+        </div>
+        <div class="col-3">
+
+        </div>
+        <div class="col-6 text-white">
+          <h4 class="fw-bold">About Us</h4>
+          <p class="m-0">Pada situs web ini kami akan berbagi totorial pengelolahan sampah yang bisa di daur ulang
+            kembali, untuk
+            menjadi hiasan ataupun kerajinan bertujuan mengurangi pencemaran sampah di indonesia dan menyelamatkan bumi.
+          </p>
+        </div>
+      </div>
+    </div>
   </footer>
+  <!-- END FOOTER -->
 
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
     integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
     crossorigin="anonymous"></script>
+
+  <script>
+    const profileBtn = document.querySelector('#profileBtn')
+    const floatingMenu = document.querySelector('.floating-menu')
+    const backLayer = document.querySelector('.back-layer')
+
+    profileBtn.addEventListener('click', function () {
+      backLayer.classList.add("show")
+      floatingMenu.classList.add("show")
+    })
+
+    backLayer.addEventListener('click', function () {
+      backLayer.classList.remove("show")
+      floatingMenu.classList.remove("show")
+    })
+  </script>
 </body>
 
 </html>

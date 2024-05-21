@@ -14,27 +14,11 @@
 
 body {
   font-family: Arial, sans-serif;
-  line-height: 1.6;
-  background-color: rgb(255, 255, 255);
+  /* line-height: 1.6; */
   color: black;
-
 }
 
-/* Header */
-/* header {
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 1521px;
-  height: 90px;
-  background-color: #9EBFCB;
-}
-
-header .beranda {
-  font-size: 24px;
-} */
-
+/* HEADER */
 .navbar {
   background-color: #9EBFCB;
 }
@@ -43,26 +27,51 @@ header .beranda {
  border-bottom: 3px solid #168493; 
 }
 
-nav {
-  display: flex;
-  justify-content: center;
-  padding: 10px;
-}
-
-nav button {
-  background-color: #D7D0D0;
-
-  margin: 0 5px;
-  padding: 0px 5px;
-  color: black;
-  width: 108px;
-  height: 42px;
-
+.navbar #profileBtn {
+  cursor: pointer;
 }
 
 .profil {
   width: 45px;
   height: 45px;
+}
+
+.floating-menu {
+  transform: scale(0);
+  transform-origin: 20% 20%;
+  z-index: 2000;
+  transition: .2s;
+}
+
+.back-layer {
+  z-index: 1999;
+  height: 100vh;
+  width: 100vw;
+  transform: scale(0);
+}
+
+.back-layer.show {
+  transform: scale(1);
+}
+
+.floating-menu.show {
+  transform: scale(1);
+}
+
+
+/* MAIN */
+.search-container input {
+  background-color: #D7D0D0;
+}
+
+.semua {
+  background-color: #D7D0D0;
+}
+
+.row .image-card:hover {
+  background-color: #00000009;
+  cursor: pointer;
+  border-radius: 20px;
 }
 
 .totorial {
@@ -110,13 +119,13 @@ nav button {
   height: 20px;
 }
 
-.semua {
+/* .semua {
   width: 108px;
   height: 42px;
   border-radius: 7px;
   color: #fff;
   background-color: #000000;
-}
+} */
 
 .Plastik {
   width: 108px;
@@ -175,62 +184,6 @@ nav button {
   margin-right: 50px;
 }
 
-.gambar_tepi {
-  justify-content: center;
-  margin: 0px;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-
-.Footer {
+footer {
   background-color: #578292;
-  box-sizing: border-box;
-  width: 100%;
-  text-align: left;
-  font: bold 16px sans-serif;
-  padding: 50px 50px 60px 50px;
-  margin-top: 80px;
-}
-
-.footer-left h3 {
-  text-align: left;
-}
-
-.footer-left h4 {
-  display: flex;
-  justify-content: flex-start;
-  /* untuk rata kiri */
-  align-items: center;
-  /* untuk tengah vertikal */
-  font-size: 15px;
-}
-
-.footer-left h5 {
-  display: flex;
-  justify-content: flex-start;
-  /* untuk rata kiri */
-  align-items: center;
-  /* untuk tengah vertikal */
-  font-size: 15px;
-}
-
-.footer-left h6 {
-  display: flex;
-  justify-content: flex-start;
-  /* untuk rata kiri */
-  align-items: center;
-  /* untuk tengah vertikal */
-  font-size: 15px;
-}
-
-.button {
-  display: block;
-  margin-right: 20px;
-}
-
-.vidio {
-  width: 800px;
-  height: 248px
 }
