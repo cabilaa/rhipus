@@ -48,10 +48,10 @@ require "components/functions.php";
                 <i class="fa-solid fa-plus"></i>
                 Unggah
               </button>
-              <button class="d-flex align-items-center gap-1 px-2 py-1 bg-transparent rounded border border-black button-unggah">
+              <a href="edit-profil.php" class="d-flex align-items-center gap-1 px-2 py-1 bg-transparent rounded border border-black button-unggah">
                 <i class="fa-solid fa-pen-to-square"></i>
                 Edit Profil
-              </button>
+              </a>
             </div>
           </div>
         </div>
