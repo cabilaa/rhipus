@@ -9,7 +9,7 @@ function navbar($beranda, $profil)
         <i class='fa-solid fa-user fs-5'></i>
         <p class='m-0 fw-bold'>Lihat profil</p>
       </a>
-      <a href='#' class='d-flex align-items-center gap-3'>
+      <a href='pengaturan.php' class='d-flex align-items-center gap-3'>
         <i class='fa-solid fa-gear fs-5'></i>
         <p class='m-0 fw-bold'>Pengaturan</p>
       </a>
