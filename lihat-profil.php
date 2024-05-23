@@ -60,7 +60,7 @@ require "components/functions.php";
       </section>
 
       <section id="my-videos" class="mt-5">
-        <h5 class="active-line d-inline-block">My Videos</h5>
+        <h5 class="fw-bold active-line d-inline-block">My Videos</h5>
         <div class="row g-5 justify-content-center">
           <a href="putar_video.html" class="col-4 image-card py-4">
             <!-- <iframe class="w-100 rounded-4" height="230" src="https://www.youtube.com/embed/MqcjUWwCsFg?si=bDAwg1F1W8cmuuIq"></iframe> -->
