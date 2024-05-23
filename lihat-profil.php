@@ -44,10 +44,12 @@ require "components/functions.php";
             <h4 class="fw-bold m-0">Bimo DIY</h4>
             <p class="mb-2">Let's make it DIY from trash.</p>
             <div class="d-flex align-items-center gap-4">
-              <button class="d-flex align-items-center gap-1 px-2 py-1 bg-transparent rounded border border-black button-unggah">
-                <i class="fa-solid fa-plus"></i>
-                Unggah
-              </button>
+              <a href="unggah.php">
+                <button class="d-flex align-items-center gap-1 px-2 py-1 bg-transparent rounded border border-black button-unggah">
+                  <i class="fa-solid fa-plus"></i>
+                  Unggah
+                </button>
+              </a>
               <a href="edit-profil.php" class="d-flex align-items-center gap-1 px-2 py-1 bg-transparent rounded border border-black button-unggah">
                 <i class="fa-solid fa-pen-to-square"></i>
                 Edit Profil

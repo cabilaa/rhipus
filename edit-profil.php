@@ -25,7 +25,7 @@ require "components/functions.php";
     <div class="container w-75">
       <div class="d-flex gap-3 my-4 justify-content-center">
         <a href="lihat-profil.php">
-          <i class="fa-solid fa-circle-chevron-left"></i>
+          <i class="fa-solid fa-circle-chevron-left fs-4 mt-2"></i>
         </a>
         <div class="rounded-4 border border-black p-0 flex-grow-1" style="max-width: 50%;">
           <div class="d-flex align-items-center justify-content-between border-bottom border-black p-3">
