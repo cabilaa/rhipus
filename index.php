@@ -1,10 +1,14 @@
+<?php
+require "components/functions.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Beranda</title>
+  <title>Beranda | Rhipus</title>
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/global.css" />
   <link rel="stylesheet" href="assets/css/beranda.css" />
@@ -12,34 +16,8 @@
 </head>
 
 <body>
-  <div class="back-layer position-fixed"></div>
-  <!-- FLOATING PROFILE MENU -->
-  <div class="floating-menu position-fixed top-0 end-0">
-    <div class="d-flex flex-column gap-3 bg-white p-4 pe-5 shadow rounded">
-      <a  href="#" class="d-flex align-items-center gap-3">
-        <i class="fa-solid fa-user fs-5"></i>
-        <p class="m-0 fw-bold">Lihat profil</p>
-      </a>
-      <a  href="#" class="d-flex align-items-center gap-3">
-        <i class="fa-solid fa-gear fs-5"></i>
-        <p class="m-0 fw-bold">Pengaturan</p>
-      </a>
-    </div>
-  </div>
-
   <!-- HEADER -->
-  <nav class="navbar navbar-expand-lg p-0">
-    <div class="container">
-      <div class="d-flex w-100 align-items-center justify-content-between">
-        <img src="assets/img/logoo.png" alt="" class="img-fluid" width="80">
-        <a href="#" class="nav-link-beranda text-dark text-decoration-none fs-5 py-3">Beranda</a>
-        <a id="profileBtn" class="d-flex align-items-center gap-2 text-decoration-none">
-          <img src="assets/img/profill.png" alt="" class="img-fluid">
-          <small class="text-dark fs-5">Bimo DIY</small>
-        </a>
-      </div>
-    </div>
-  </nav>
+  <?php navbar("active py-3", ""); ?>
   <!-- END HEADER -->
 
   <!-- MAIN -->
