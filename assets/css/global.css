@@ -38,6 +38,13 @@ a {
   background-color: var(--secondary);
 }
 
+.button-secondary-80 {
+  background-color: rgba(158, 191, 203, 0.8);
+}
+.button-secondary-80:hover {
+  background-color: rgba(158, 191, 203, 1);
+}
+
 .bg-primary {
   background-color: var(--primary) !important;
 }
