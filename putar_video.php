@@ -1,3 +1,7 @@
+<?php
+require "components/functions.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,35 +16,8 @@
 </head>
 
 <body>
-    <div class="back-layer position-fixed"></div>
-    <!-- FLOATING PROFILE MENU -->
-    <div class="floating-menu position-fixed top-0 end-0">
-
-        <div class="d-flex flex-column gap-3 bg-white p-4 pe-5 shadow rounded">
-            <div class="d-flex align-items-center gap-3">
-                <i class="fa-solid fa-user"></i>
-                <h5 class="m-0 fw-bold">Lihat profil</h5>
-            </div>
-            <div class="d-flex align-items-center gap-3">
-                <i class="fa-solid fa-gear fs-4 text-black"></i>
-                <h5 class="m-0 fw-bold">Pengaturan</h5>
-            </div>
-        </div>
-    </div>
-
     <!-- HEADER -->
-    <nav class="navbar navbar-expand-lg p-0">
-        <div class="container">
-            <div class="d-flex w-100 align-items-center justify-content-between">
-                <img src="assets/img/logoo.png" alt="" class="img-fluid" width="80">
-                <a href="#" class="nav-link-beranda text-dark text-decoration-none fs-5 py-3">Beranda</a>
-                <a id="profileBtn" class="d-flex align-items-center gap-2 text-decoration-none">
-                    <img src="assets/img/profill.png" alt="" class="img-fluid">
-                    <small class="text-dark fs-5">Bimo DIY</small>
-                </a>
-            </div>
-        </div>
-    </nav>
+    <?php navbar("active py-3", ""); ?>
     <!-- END HEADER -->
 
     <!-- MAIN -->
@@ -51,8 +28,7 @@
                 <div class="mb-3 position-relative w-50 mx-auto">
                     <input type="text" class="form-control rounded-pill pe-5" placeholder="Telusuri">
                     <button>
-                        <img src="assets/img/search.png" alt="" class="position-absolute top-0 end-0 img-fluid"
-                            width="57">
+                        <img src="assets/img/search.png" alt="" class="position-absolute top-0 end-0 img-fluid" width="57">
                     </button>
                 </div>
             </form>
@@ -61,7 +37,7 @@
         <div class="button mb-4">
             <button class="semua fw-bold px-2 py-1 rounded">Semua video</button>
         </div>
-
+<!-- <iframe class="w-100 rounded-4" height="230" src="https://www.youtube.com/embed/MqcjUWwCsFg?si=bDAwg1F1W8cmuuIq"></iframe> -->
         <div class="row py-4 g-3 playing-video">
             <div class="col-7">
                 <img src="assets/img/video_thumbnail.svg" alt="" class="img-fluid">
@@ -71,8 +47,7 @@
                     <h2 class="fw-bold m-0">DIY TAS CANTIK!</h2>
                     <p class="fw-bold text-secondary m-0">Finaliza</p>
                     <p class="fw-bold text-secondary">550.000 x ditonton - 2 bulan yang lalu</p>
-                    <a href="https://id.shp.ee/tHgDWB7" target="_blank"
-                        class="button-secondary d-inline-flex align-items-center text-decoration-none text-dark gap-2 py-2 px-3 rounded-4 shadow">
+                    <a href="https://id.shp.ee/tHgDWB7" target="_blank" class="button-secondary d-inline-flex align-items-center text-decoration-none text-dark gap-2 py-2 px-3 rounded-4 shadow">
                         <i class="fa-solid fa-link"></i>
                         <p class="fw-bold m-0">Link tokonya</p>
                     </a>
@@ -252,24 +227,23 @@
     </footer>
     <!-- END FOOTER -->
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 
     <script>
         const profileBtn = document.querySelector('#profileBtn')
         const floatingMenu = document.querySelector('.floating-menu')
         const backLayer = document.querySelector('.back-layer')
 
-        profileBtn.addEventListener('click', function () {
+        profileBtn.addEventListener('click', function() {
             backLayer.classList.add("show")
             floatingMenu.classList.add("show")
         })
 
-        backLayer.addEventListener('click', function () {
+        backLayer.addEventListener('click', function() {
             backLayer.classList.remove("show")
             floatingMenu.classList.remove("show")
         })
     </script>
 </body>
+
 </html>

@@ -39,8 +39,23 @@ require "components/functions.php";
     </div>
 
     <div class="row g-5 justify-content-center">
-      <a href="putar_video.html" class="col-4 image-card py-4">
-        <!-- <iframe class="w-100 rounded-4" height="230" src="https://www.youtube.com/embed/MqcjUWwCsFg?si=bDAwg1F1W8cmuuIq"></iframe> -->
+      <?php
+      $videos = query("SELECT * FROM `video` INNER JOIN `akun` ON video.channel = akun.id;");
+      foreach ($videos as $video) :
+      ?>
+        <a href="putar_video.php" class="col-4 image-card py-4">
+          <img src="<?= $video['thumbnail'] ?>" alt="" class="img-fluid">
+          <div class="d-flex align-items-start gap-3 mt-2">
+            <img src="<?= $video['image'] ?>" alt="" class="img-fluid" width="45">
+            <div>
+              <p class="fw-bold m-0 mt-2"><?= $video['judul'] ?></p>
+              <small class="text-secondary fw-bold d-block"><?= $video['username'] ?></small>
+              <small class="text-secondary fw-bold"><?= $video['views'] ?>x ditonton - <?= time_elapsed_string($video['tgl_upload']) ?></small>
+            </div>
+          </div>
+        </a>
+      <?php endforeach; ?>
+      <!-- <a href="putar_video.php" class="col-4 image-card py-4">
         <img src="assets/img/pop mie.png" alt="" class="img-fluid">
         <div class="d-flex align-items-start gap-3 mt-2">
           <img src="assets/img/profilcabila.png" alt="" class="img-fluid" width="45">
@@ -50,8 +65,8 @@ require "components/functions.php";
             <small class="text-secondary fw-bold">5rb ditonton - 1 hari yang lalu</small>
           </div>
         </div>
-      </a>
-      <a href="putar_video.html" class="col-4 image-card py-4">
+      </a> -->
+      <!-- <a href="putar_video.php" class="col-4 image-card py-4">
         <img src="assets/img/bambu.png" alt="" class="img-fluid">
         <div class="d-flex align-items-start gap-3 mt-2">
           <img src="assets/img/vaniprofil.png" alt="" class="img-fluid" width="45">
@@ -61,8 +76,8 @@ require "components/functions.php";
             <small class="text-secondary fw-bold">1 jt ditonton - 3 minggu yang lalu</small>
           </div>
         </div>
-      </a>
-      <a href="putar_video.html" class="col-4 image-card py-4">
+      </a> -->
+      <!-- <a href="putar_video.php" class="col-4 image-card py-4">
         <img src="assets/img/tastutupbotol.png" alt="" class="img-fluid">
         <div class="d-flex align-items-start gap-3 mt-2">
           <img src="assets/img/finaliza.svg" alt="" class="img-fluid" width="45">
@@ -72,8 +87,8 @@ require "components/functions.php";
             <small class="text-secondary fw-bold">550rb ditonton - 2 bulan yang lalu</small>
           </div>
         </div>
-      </a>
-      <a href="putar_video.html" class="col-4 image-card py-4">
+      </a> -->
+      <!-- <a href="putar_video.php" class="col-4 image-card py-4">
         <img src="assets/img/dvd.png" alt="" class="img-fluid">
         <div class="d-flex align-items-start gap-3 mt-2">
           <img src="assets/img/profildvd.png" alt="" class="img-fluid" width="45">
@@ -83,8 +98,8 @@ require "components/functions.php";
             <small class="text-secondary fw-bold">220rb ditonton - 1 hari yang lalu</small>
           </div>
         </div>
-      </a>
-      <a href="putar_video.html" class="col-4 image-card py-4">
+      </a> -->
+      <!-- <a href="putar_video.php" class="col-4 image-card py-4">
         <img src="assets/img/kalenglilin.png" alt="" class="img-fluid">
         <div class="d-flex align-items-start gap-3 mt-2">
           <img src="assets/img/profilkaleng.png" alt="" class="img-fluid" width="45">
@@ -94,8 +109,8 @@ require "components/functions.php";
             <small class="text-secondary fw-bold">872rb ditonton - 3 bulan yang lalu</small>
           </div>
         </div>
-      </a>
-      <a href="putar_video.html" class="col-4 image-card py-4">
+      </a> -->
+      <!-- <a href="putar_video.php" class="col-4 image-card py-4">
         <img src="assets/img/tasaquagelas.png" alt="" class="img-fluid">
         <div class="d-flex align-items-start gap-3 mt-2">
           <img src="assets/img/profilbimo.png" alt="" class="img-fluid" width="45">
@@ -105,8 +120,8 @@ require "components/functions.php";
             <small class="text-secondary fw-bold">550rb ditonton - 2 bulan yang lalu</small>
           </div>
         </div>
-      </a>
-      <a href="putar_video.html" class="col-4 image-card py-4">
+      </a> -->
+      <!-- <a href="putar_video.php" class="col-4 image-card py-4">
         <img src="assets/img/kotak.png" alt="" class="img-fluid">
         <div class="d-flex align-items-start gap-3 mt-2">
           <img src="assets/img/profildvd.png" alt="" class="img-fluid" width="45">
@@ -116,8 +131,8 @@ require "components/functions.php";
             <small class="text-secondary fw-bold">5rb ditonton - 5 hari yang lalu</small>
           </div>
         </div>
-      </a>
-      <a href="putar_video.html" class="col-4 image-card py-4">
+      </a> -->
+      <!-- <a href="putar_video.php" class="col-4 image-card py-4">
         <img src="assets/img/hiasan.png" alt="" class="img-fluid">
         <div class="d-flex align-items-start gap-3 mt-2">
           <img src="assets/img/profilcabila.png" alt="" class="img-fluid" width="45">
@@ -127,8 +142,8 @@ require "components/functions.php";
             <small class="text-secondary fw-bold">3rb ditonton - 4 hari yang lalu</small>
           </div>
         </div>
-      </a>
-      <a href="putar_video.html" class="col-4 image-card py-4">
+      </a> -->
+      <!-- <a href="putar_video.php" class="col-4 image-card py-4">
         <img src="assets/img/dompetkecap.png" alt="" class="img-fluid">
         <div class="d-flex align-items-start gap-3 mt-2">
           <img src="assets/img/vaniprofil.png" alt="" class="img-fluid" width="45">
@@ -138,7 +153,7 @@ require "components/functions.php";
             <small class="text-secondary fw-bold">1rb ditonton - 3 jam yang lalu</small>
           </div>
         </div>
-      </a>
+      </a> -->
     </div>
 
     <!-- <table>
@@ -204,21 +219,19 @@ require "components/functions.php";
   </footer>
   <!-- END FOOTER -->
 
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 
   <script>
     const profileBtn = document.querySelector('#profileBtn')
     const floatingMenu = document.querySelector('.floating-menu')
     const backLayer = document.querySelector('.back-layer')
 
-    profileBtn.addEventListener('click', function () {
+    profileBtn.addEventListener('click', function() {
       backLayer.classList.add("show")
       floatingMenu.classList.add("show")
     })
 
-    backLayer.addEventListener('click', function () {
+    backLayer.addEventListener('click', function() {
       backLayer.classList.remove("show")
       floatingMenu.classList.remove("show")
     })

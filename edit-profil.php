@@ -1,5 +1,18 @@
 <?php
 require "components/functions.php";
+$bio_value = query("SELECT bio FROM akun WHERE id = $_SESSION[id]")[0]['bio'];
+if (isset($_POST['submit'])) {
+  $id = $_SESSION['id'];
+  $username = $_POST['username'];
+  $bio = $_POST['bio'];
+  $query = "UPDATE akun SET username = '$username', bio = '$bio' WHERE id = $id";
+  if (mysqli_query($conn, $query)) {
+    $_SESSION['username'] = $username;
+    echo "<script>alert('Berhasil mengubah profil');document.location.href = 'lihat-profil.php';</script>";
+  } else {
+    echo "<script>alert('Gagal mengubah profil');document.location.href = 'lihat-profil.php';</script>";
+  }
+}
 ?>
 
 <!DOCTYPE html>
@@ -32,22 +45,20 @@ require "components/functions.php";
             <h2 class="fw-bold text-center m-0">Edit Profil</h2>
             <img src="assets/img/profill.png" alt="" class="img-fluid">
           </div>
-          <form class="p-3">
+          <form class="p-3" method="post">
             <div class="mb-3">
-              <label for="nama_pengguna" class="form-label fw-bold">Nama Pengguna</label>
-              <input type="text" class="form-control" id="nama_pengguna">
+              <label for="username" class="form-label fw-bold">Nama Pengguna</label>
+              <input type="text" class="form-control" id="username" name="username" value="<?= $_SESSION['username'] ?>">
             </div>
             <div class="mb-3">
               <label for="bio" class="form-label fw-bold">Bio</label>
-              <textarea type="text" class="form-control" id="bio" rows="4"></textarea>
+              <textarea type="text" class="form-control" id="bio" name="bio" rows="4"><?=$bio_value?></textarea>
             </div>
             <div class="d-flex align-items-center justify-content-end gap-3">
               <a href="lihat-profil.php">
-                <button type="submit" class="btn button-secondary-80 rounded-pill px-3 py-1 fw-bold">Batal</button>
+                <button type="button" class="btn button-secondary-80 rounded-pill px-3 py-1 fw-bold">Batal</button>
               </a>
-              <a href="lihat-profil.php">
-                <button type="submit" class="btn shadow-sm border rounded-pill px-3 py-1 fw-bold">Simpan</button>
-              </a>
+              <button type="submit" name="submit" class="btn shadow-sm border rounded-pill px-3 py-1 fw-bold">Simpan</button>
             </div>
           </form>
         </div>

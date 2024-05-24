@@ -41,8 +41,8 @@ require "components/functions.php";
             <img src="assets/img/profilbimo.png" alt="Profile" class="img-fluid" width="80">
           </div>
           <div>
-            <h4 class="fw-bold m-0">Bimo DIY</h4>
-            <p class="mb-2">Let's make it DIY from trash.</p>
+            <h4 class="fw-bold m-0"><?= $_SESSION['username'] ?></h4>
+            <p class="mb-2"><?= query("SELECT bio FROM akun WHERE id = $_SESSION[id]")[0]['bio'];?></p>
             <div class="d-flex align-items-center gap-4">
               <a href="unggah.php">
                 <button class="d-flex align-items-center gap-1 px-2 py-1 bg-transparent rounded border border-black button-unggah">
