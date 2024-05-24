@@ -38,7 +38,7 @@ require "components/functions.php";
       <section id="profile">
         <div class="d-flex align-items-center gap-4">
           <div>
-            <img src="assets/img/profill.png" alt="Profile" class="img-fluid" width="80">
+            <img src="assets/img/profilbimo.png" alt="Profile" class="img-fluid" width="80">
           </div>
           <div>
             <h4 class="fw-bold m-0">Bimo DIY</h4>
@@ -64,35 +64,35 @@ require "components/functions.php";
         <div class="row g-5 justify-content-center">
           <a href="putar_video.html" class="col-4 image-card py-4">
             <!-- <iframe class="w-100 rounded-4" height="230" src="https://www.youtube.com/embed/MqcjUWwCsFg?si=bDAwg1F1W8cmuuIq"></iframe> -->
-            <img src="assets/img/pop mie.png" alt="" class="img-fluid">
+            <img src="assets/img/tasaquagelas.png" alt="" class="img-fluid">
             <div class="d-flex align-items-start gap-3 mt-2">
-              <img src="assets/img/profill.png" alt="" class="img-fluid" width="45">
+              <img src="assets/img/profilbimo.png" alt="" class="img-fluid" width="45">
               <div>
-                <p class="fw-bold m-0 mt-2">POP MIE BISA JADI AESTHETIC?</p>
-                <small class="text-secondary fw-bold d-block">cabila foryou</small>
-                <small class="text-secondary fw-bold">5rb ditonton - 1 hari yang lalu</small>
+                <p class="fw-bold m-0 mt-2">TAS DARI AQUA GELAS..</p>
+                <small class="text-secondary fw-bold d-block">Bimo DIY</small>
+                <small class="text-secondary fw-bold">550rb ditonton - 2 minggu yang lalu</small>
               </div>
             </div>
           </a>
           <a href="putar_video.html" class="col-4 image-card py-4">
-            <img src="assets/img/pop mie.png" alt="" class="img-fluid">
+            <img src="assets/img/rak.jpeg" alt="" class="img-fluid rounded-4">
             <div class="d-flex align-items-start gap-3 mt-2">
-              <img src="assets/img/profill.png" alt="" class="img-fluid" width="45">
+              <img src="assets/img/profilbimo.png" alt="" class="img-fluid" width="45">
               <div>
-                <p class="fw-bold m-0 mt-2">POP MIE BISA JADI AESTHETIC?</p>
-                <small class="text-secondary fw-bold d-block">cabila foryou</small>
-                <small class="text-secondary fw-bold">5rb ditonton - 1 hari yang lalu</small>
+                <p class="fw-bold m-0 mt-2">DAUR ULANG SAMPAH JADI RAK!</p>
+                <small class="text-secondary fw-bold d-block">Bimo DIY</small>
+                <small class="text-secondary fw-bold">7rb ditonton - 2 bulan yang lalu</small>
               </div>
             </div>
           </a>
           <a href="putar_video.html" class="col-4 image-card py-4">
-            <img src="assets/img/pop mie.png" alt="" class="img-fluid">
+            <img src="assets/img/4idekreatif.jpeg" alt="" class="img-fluid rounded-4">
             <div class="d-flex align-items-start gap-3 mt-2">
-              <img src="assets/img/profill.png" alt="" class="img-fluid" width="45">
+              <img src="assets/img/profilbimo.png" alt="" class="img-fluid" width="45">
               <div>
-                <p class="fw-bold m-0 mt-2">POP MIE BISA JADI AESTHETIC?</p>
-                <small class="text-secondary fw-bold d-block">cabila foryou</small>
-                <small class="text-secondary fw-bold">5rb ditonton - 1 hari yang lalu</small>
+                <p class="fw-bold m-0 mt-2">4 IDE DIY UNTUK KAMU</p>
+                <small class="text-secondary fw-bold d-block">Bimo DIY</small>
+                <small class="text-secondary fw-bold">74rb ditonton - 9 bulan yang lalu</small>
               </div>
             </div>
           </a>

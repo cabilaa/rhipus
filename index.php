@@ -98,7 +98,7 @@ require "components/functions.php";
       <a href="putar_video.html" class="col-4 image-card py-4">
         <img src="assets/img/tasaquagelas.png" alt="" class="img-fluid">
         <div class="d-flex align-items-start gap-3 mt-2">
-          <img src="assets/img/profill.png" alt="" class="img-fluid" width="45">
+          <img src="assets/img/profilbimo.png" alt="" class="img-fluid" width="45">
           <div>
             <p class="fw-bold m-0 mt-2">TAS DARI AQUA GELAS..</p>
             <small class="text-secondary fw-bold d-block">Bimo DIY</small>
