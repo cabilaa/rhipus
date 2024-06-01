@@ -1,11 +1,11 @@
 <?php
 require "components/functions.php";
-$bio_value = query("SELECT bio FROM akun WHERE id = $_SESSION[id]")[0]['bio'];
+$bio_value = single_query("SELECT bio FROM akun WHERE akun_id = $_SESSION[akun_id]");
 if (isset($_POST['submit'])) {
-  $id = $_SESSION['id'];
+  $akun_id = $_SESSION['akun_id'];
   $username = $_POST['username'];
   $bio = $_POST['bio'];
-  $query = "UPDATE akun SET username = '$username', bio = '$bio' WHERE id = $id";
+  $query = "UPDATE akun SET username = '$username', bio = '$bio' WHERE akun_id = $akun_id";
   if (mysqli_query($conn, $query)) {
     $_SESSION['username'] = $username;
     echo "<script>alert('Berhasil mengubah profil');document.location.href = 'lihat-profil.php';</script>";
@@ -43,7 +43,7 @@ if (isset($_POST['submit'])) {
         <div class="rounded-4 border border-black p-0 flex-grow-1" style="max-width: 50%;">
           <div class="d-flex align-items-center justify-content-between border-bottom border-black p-3">
             <h2 class="fw-bold text-center m-0">Edit Profil</h2>
-            <img src="assets/img/profill.png" alt="" class="img-fluid">
+            <img src="<?= $_SESSION['image'] ?>" alt="" class="img-fluid">
           </div>
           <form class="p-3" method="post">
             <div class="mb-3">

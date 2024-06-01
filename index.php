@@ -1,5 +1,18 @@
 <?php
 require "components/functions.php";
+if (isset($_GET["keyword"])) {
+  $keyword = $_GET["keyword"];
+  $videos = query("SELECT * FROM `video` JOIN `akun` ON channel = akun_id WHERE judul LIKE '%$keyword%'");
+  if ($videos == null) {
+    $notFound = "Pencarian tidak ditemukan";
+  } else {
+    $notFound = "";
+  }
+} else {
+  $keyword = "";
+  $notFound = "";
+  $videos = query("SELECT * FROM `video` JOIN `akun` ON channel = akun_id");
+}
 ?>
 
 <!DOCTYPE html>
@@ -21,30 +34,32 @@ require "components/functions.php";
   <!-- END HEADER -->
 
   <!-- MAIN -->
-  <main class="container">
-
+  <main class="container position-relative">
+    <p class="not-found"><?= $notFound ?></p>
     <div class="search-container mt-4 pt-4 sticky-top bg-white">
-      <form>
+      <form action="index.php" method="get">
         <div class="mb-3 position-relative w-50 mx-auto">
-          <input type="text" class="form-control rounded-pill pe-5" placeholder="Telusuri">
-          <button>
+          <input type="text" name="keyword" class="form-control rounded-pill pe-5" placeholder="Telusuri" value="<?= $keyword ?>">
+          <button type="submit">
             <img src="assets/img/search.png" alt="" class="position-absolute top-0 end-0 img-fluid" width="57">
           </button>
         </div>
       </form>
     </div>
 
-    <div class="button mb-4">
+    <a href="index.php" class="button mb-4">
       <button class="semua fw-bold px-2 py-1 rounded">Semua video</button>
-    </div>
+    </a>
 
-    <div class="row g-5 justify-content-center">
+    <div class="row g-5">
       <?php
-      $videos = query("SELECT * FROM `video` INNER JOIN `akun` ON video.channel = akun.id;");
+      // print_r($videos);
       foreach ($videos as $video) :
       ?>
-        <a href="putar_video.php" class="col-4 image-card py-4">
-          <img src="<?= $video['thumbnail'] ?>" alt="" class="img-fluid">
+        <a href="putar_video.php?id=<?= $video['video_id'] ?>" class="col-4 image-card py-4">
+          <div class="thumbnail rounded-3">
+            <img src="<?= $video['thumbnail'] ?>" alt="" class="img-fluid">
+          </div>
           <div class="d-flex align-items-start gap-3 mt-2">
             <img src="<?= $video['image'] ?>" alt="" class="img-fluid" width="45">
             <div>
@@ -222,19 +237,21 @@ require "components/functions.php";
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 
   <script>
-    const profileBtn = document.querySelector('#profileBtn')
-    const floatingMenu = document.querySelector('.floating-menu')
-    const backLayer = document.querySelector('.back-layer')
+    if (document.querySelector('.avatar-img')) {
+      const profileBtn = document.querySelector('#profileBtn')
+      const floatingMenu = document.querySelector('.floating-menu')
+      const backLayer = document.querySelector('.back-layer')
 
-    profileBtn.addEventListener('click', function() {
-      backLayer.classList.add("show")
-      floatingMenu.classList.add("show")
-    })
+      profileBtn.addEventListener('click', function() {
+        backLayer.classList.add("show")
+        floatingMenu.classList.add("show")
+      })
 
-    backLayer.addEventListener('click', function() {
-      backLayer.classList.remove("show")
-      floatingMenu.classList.remove("show")
-    })
+      backLayer.addEventListener('click', function() {
+        backLayer.classList.remove("show")
+        floatingMenu.classList.remove("show")
+      })
+    }
   </script>
 </body>
 

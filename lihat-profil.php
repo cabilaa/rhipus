@@ -38,11 +38,15 @@ require "components/functions.php";
       <section id="profile">
         <div class="d-flex align-items-center gap-4">
           <div>
-            <img src="assets/img/profilbimo.png" alt="Profile" class="img-fluid" width="80">
+            <img src="<?= $_SESSION['image'] ?>" alt="Profile" class="img-fluid" width="80">
           </div>
           <div>
             <h4 class="fw-bold m-0"><?= $_SESSION['username'] ?></h4>
-            <p class="mb-2"><?= query("SELECT bio FROM akun WHERE id = $_SESSION[id]")[0]['bio'];?></p>
+            <p class="mb-2">
+              <?php
+              echo single_query("SELECT bio FROM akun WHERE akun_id = $_SESSION[akun_id]");
+              ?>
+            </p>
             <div class="d-flex align-items-center gap-4">
               <a href="unggah.php">
                 <button class="d-flex align-items-center gap-1 px-2 py-1 bg-transparent rounded border border-black button-unggah">
@@ -61,41 +65,24 @@ require "components/functions.php";
 
       <section id="my-videos" class="mt-5">
         <h5 class="fw-bold active-line d-inline-block">My Videos</h5>
-        <div class="row g-5 justify-content-center">
-          <a href="putar_video.html" class="col-4 image-card py-4">
-            <!-- <iframe class="w-100 rounded-4" height="230" src="https://www.youtube.com/embed/MqcjUWwCsFg?si=bDAwg1F1W8cmuuIq"></iframe> -->
-            <img src="assets/img/tasaquagelas.png" alt="" class="img-fluid">
-            <div class="d-flex align-items-start gap-3 mt-2">
-              <img src="assets/img/profilbimo.png" alt="" class="img-fluid" width="45">
-              <div>
-                <p class="fw-bold m-0 mt-2">TAS DARI AQUA GELAS..</p>
-                <small class="text-secondary fw-bold d-block">Bimo DIY</small>
-                <small class="text-secondary fw-bold">550rb ditonton - 2 minggu yang lalu</small>
+        <div class="row g-5">
+          <?php
+          $videos = query("SELECT * FROM `video` JOIN `akun` ON channel = akun_id WHERE akun_id = $_SESSION[akun_id]");
+          // print_r($videos);
+          foreach ($videos as $video) :
+          ?>
+            <a href="putar_video.php?id=<?= $video['video_id'] ?>" class="col-4 image-card py-4">
+              <img src="<?= $video['thumbnail'] ?>" alt="" class="img-fluid">
+              <div class="d-flex align-items-start gap-3 mt-2">
+                <img src="<?= $video['image'] ?>" alt="" class="img-fluid" width="45">
+                <div>
+                  <p class="fw-bold m-0 mt-2"><?= $video['judul'] ?></p>
+                  <small class="text-secondary fw-bold d-block"><?= $video['username'] ?></small>
+                  <small class="text-secondary fw-bold"><?= $video['views'] ?>x ditonton - <?= time_elapsed_string($video['tgl_upload']) ?></small>
+                </div>
               </div>
-            </div>
-          </a>
-          <a href="putar_video.html" class="col-4 image-card py-4">
-            <img src="assets/img/rak.jpeg" alt="" class="img-fluid rounded-4">
-            <div class="d-flex align-items-start gap-3 mt-2">
-              <img src="assets/img/profilbimo.png" alt="" class="img-fluid" width="45">
-              <div>
-                <p class="fw-bold m-0 mt-2">DAUR ULANG SAMPAH JADI RAK!</p>
-                <small class="text-secondary fw-bold d-block">Bimo DIY</small>
-                <small class="text-secondary fw-bold">7rb ditonton - 2 bulan yang lalu</small>
-              </div>
-            </div>
-          </a>
-          <a href="putar_video.html" class="col-4 image-card py-4">
-            <img src="assets/img/4idekreatif.jpeg" alt="" class="img-fluid rounded-4">
-            <div class="d-flex align-items-start gap-3 mt-2">
-              <img src="assets/img/profilbimo.png" alt="" class="img-fluid" width="45">
-              <div>
-                <p class="fw-bold m-0 mt-2">4 IDE DIY UNTUK KAMU</p>
-                <small class="text-secondary fw-bold d-block">Bimo DIY</small>
-                <small class="text-secondary fw-bold">74rb ditonton - 9 bulan yang lalu</small>
-              </div>
-            </div>
-          </a>
+            </a>
+          <?php endforeach; ?>
         </div>
       </section>
 

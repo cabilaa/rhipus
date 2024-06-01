@@ -34,9 +34,14 @@ require "components/functions.php";
               $username = $_POST['username'];
               $password = md5($_POST['password']);
               $password_c = md5($_POST['password_c']);
+              $image = "assets/img/user-avatar.png";
               if ($password == $password_c) {
-                $query = "INSERT INTO `akun` (`username`, `password`) VALUES('$username', '$password')";
+                $query = "INSERT INTO `akun` (`username`, `password`, `image`) VALUES('$username', '$password', '$image')";
                 if (mysqli_query($conn, $query)) {
+                  $_SESSION['login'] = true;
+                  $_SESSION['akun_id'] = mysqli_insert_id($conn);
+                  $_SESSION['username'] = $username;
+                  $_SESSION['image'] = $image;
                   echo "<script>alert('Berhasil membuat akun');document.location.href = 'index.php';</script>";
                 } else {
                   echo "<small class='text-danger mb-2 d-block'>Gagal membuat akun</small>";
@@ -48,19 +53,19 @@ require "components/functions.php";
             ?>
             <div class="mb-3">
               <label for="username" class="form-label fw-bold text-white">Nama Pengguna</label>
-              <input type="text" class="form-control bg-white-50 border-0" id="username" name="username">
+              <input autocomplete="off" type="text" class="form-control bg-white-50 border-0" id="username" name="username">
             </div>
             <div class="mb-3">
               <label for="password" class="form-label fw-bold text-white">Kata Sandi</label>
-              <input type="password" class="form-control bg-white-50 border-0" id="password" name="password">
+              <input autocomplete="off" type="password" class="form-control bg-white-50 border-0" id="password" name="password">
             </div>
             <div class="mb-3">
               <label for="password_c" class="form-label fw-bold text-white">Konfirmasi Kata Sandi</label>
-              <input type="password" class="form-control bg-white-50 border-0" id="password_c" name="password_c">
+              <input autocomplete="off" type="password" class="form-control bg-white-50 border-0" id="password_c" name="password_c">
             </div>
             <button type="submit" name="submit" class="btn button-secondary-80 rounded-pill px-5 py-2 fw-bold text-white d-block mx-auto mt-5">DAFTAR</button>
             <div class="d-flex align-items-center mt-3 gap-1 justify-content-center">
-              <p class="m-0 small text-white">Sudah punya akun?</p><a href="masuk.html" class="small color-light-primary">Masuk</a>
+              <p class="m-0 small text-white">Sudah punya akun?</p><a href="masuk.php" class="small color-light-primary">Masuk</a>
             </div>
           </form>
         </div>

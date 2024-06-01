@@ -1,5 +1,10 @@
 <?php
 require "components/functions.php";
+if (isset($_GET['id'])) {
+    $video_id = $_GET['id'];
+    $videos = query("SELECT * FROM `video` JOIN akun ON video.channel = akun.akun_id WHERE video_id = $video_id");
+    $videos_lain = query("SELECT * FROM `video` JOIN akun ON video.channel = akun.akun_id WHERE video_id <> $video_id");
+}
 ?>
 
 <!DOCTYPE html>
@@ -24,62 +29,84 @@ require "components/functions.php";
     <main class="container">
 
         <div class="search-container mt-4 pt-4 sticky-top bg-white">
-            <form>
+            <form action="index.php" method="get">
                 <div class="mb-3 position-relative w-50 mx-auto">
-                    <input type="text" class="form-control rounded-pill pe-5" placeholder="Telusuri">
-                    <button>
+                    <input type="text" name="keyword" class="form-control rounded-pill pe-5" placeholder="Telusuri">
+                    <button type="submit">
                         <img src="assets/img/search.png" alt="" class="position-absolute top-0 end-0 img-fluid" width="57">
                     </button>
                 </div>
             </form>
         </div>
 
-        <div class="button mb-4">
+        <a href="index.php" class="button mb-4">
             <button class="semua fw-bold px-2 py-1 rounded">Semua video</button>
-        </div>
-<!-- <iframe class="w-100 rounded-4" height="230" src="https://www.youtube.com/embed/MqcjUWwCsFg?si=bDAwg1F1W8cmuuIq"></iframe> -->
-        <div class="row py-4 g-3 playing-video">
-            <div class="col-7">
-                <img src="assets/img/video_thumbnail.svg" alt="" class="img-fluid">
-            </div>
-            <div class="col-5">
-                <div class="d-flex flex-column align-items-start">
-                    <h2 class="fw-bold m-0">DIY TAS CANTIK!</h2>
-                    <p class="fw-bold text-secondary m-0">Finaliza</p>
-                    <p class="fw-bold text-secondary">550.000 x ditonton - 2 bulan yang lalu</p>
-                    <a href="https://id.shp.ee/tHgDWB7" target="_blank" class="button-secondary d-inline-flex align-items-center text-decoration-none text-dark gap-2 py-2 px-3 rounded-4 shadow">
-                        <i class="fa-solid fa-link"></i>
-                        <p class="fw-bold m-0">Link tokonya</p>
-                    </a>
-                    <div class="px-4 py-3 mt-3 rounded-4 desc-box text-muted">
-                        <small class="d-block fw-bold">Begitulah langkah langkah yang bisa kalian ikuti ketika kalian ingin mengubah
-                            sampah menjadi tas diy yang cantik.</small>
-                        <small class="d-block fw-bold my-5">Sangat mudah bukan? jangan lupa follow and subscribe channel kita.</small>
-                        <div class="d-flex align-items-center gap-2">
-                            <img src="assets/img/finaliza.svg" alt="" width="40" class="img-fluid rounded-circle">
-                            <p class="fw-bold m-0">Finaliza</p>
+        </a>
+        <!-- <iframe class="w-100 rounded-4" height="230" src="https://www.youtube.com/embed/MqcjUWwCsFg?si=bDAwg1F1W8cmuuIq"></iframe> -->
+        <?php
+        // print_r($videos);
+        foreach ($videos as $video) :
+        ?>
+            <div class="row py-4 g-3 playing-video h-100">
+                <div class="col-7">
+                    <div class="video-container w-100">
+                        <video controls class="img-fluid w-100 rounded-3">
+                            <source src="<?= $video['video_path'] ?>" type="video/mp4">
+                            Browser Anda tidak mendukung elemen video.
+                        </video>
+                    </div>
+                    <!-- <div class="thumbnail rounded-3">
+                        <img src="<?= $video['thumbnail'] ?>" alt="" class="img-fluid">
+                    </div> -->
+                </div>
+                <div class="col-5 max-h-100">
+                    <div class="d-flex flex-column align-items-start h-100">
+                        <h2 class="fw-bold m-0"><?= $video['judul'] ?></h2>
+                        <p class="fw-bold text-secondary m-0"><?= $video['username'] ?></p>
+                        <p class="fw-bold text-secondary"><?= $video['views'] ?> x ditonton - <?= time_elapsed_string($video['tgl_upload']) ?></p>
+                        <?php
+                        if ($video['link_toko'] != null) {
+                        ?>
+                            <a href="<?= $video['link_toko'] ?>" target="_blank" class="button-secondary d-inline-flex align-items-center text-decoration-none text-dark gap-2 py-2 px-3 rounded-4 shadow">
+                                <i class="fa-solid fa-link"></i>
+                                <p class="fw-bold m-0">Link tokonya</p>
+                            </a>
+                        <?php
+                        }
+                        ?>
+                        <div class="px-4 py-3 mt-3 rounded-4 desc-box text-muted w-100 h-100 d-flex flex-column justify-content-between">
+                            <small class="d-block fw-bold"><?= $video['deskripsi'] ?></small>
+                            <div class="d-flex align-items-center gap-2 mt-4">
+                                <img src=<?= $video['image'] ?> alt="" width="40" class="img-fluid rounded-circle">
+                                <p class="fw-bold m-0"><?= $video['username'] ?></p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        <?php endforeach; ?>
 
         <hr class="my-5">
 
-        <div class="row g-5 justify-content-center">
-            <div class="col-4 image-card py-4">
-                <!-- <iframe class="w-100 rounded-4" height="230" src="https://www.youtube.com/embed/MqcjUWwCsFg?si=bDAwg1F1W8cmuuIq"></iframe> -->
-                <img src="assets/img/potbunga.png" alt="" class="img-fluid">
-                <div class="d-flex align-items-start gap-3 mt-2">
-                    <img src="assets/img/finaliza.svg" alt="" class="uploader-img">
-                    <div>
-                        <p class="fw-bold m-0 mt-2">DIY botol plastik</p>
-                        <small class="text-secondary fw-bold d-block">Finaliza</small>
-                        <small class="text-secondary fw-bold">90rb ditonton - 6 hari yang lalu</small>
+        <div class="row g-5">
+            <?php
+            foreach ($videos_lain as $video_lain) :
+                // print_r($videos);
+            ?>
+                <a href="putar_video.php?id=<?= $video_lain['video_id'] ?>" class="col-4 image-card py-4">
+                    <!-- <iframe class="w-100 rounded-4"  src="https://www.youtube.com/embed/MqcjUWwCsFg?si=bDAwg1F1W8cmuuIq"></iframe> -->
+                    <img src="<?= $video_lain['thumbnail'] ?>" alt="" class="img-fluid">
+                    <div class="d-flex align-items-start gap-3 mt-2">
+                        <img src="<?= $video_lain['image'] ?>" alt="" class="uploader-img">
+                        <div>
+                            <p class="fw-bold m-0 mt-2"><?= $video_lain['judul'] ?></p>
+                            <small class="text-secondary fw-bold d-block"><?= $video_lain['username'] ?></small>
+                            <small class="text-secondary fw-bold"><?= $video_lain['views'] ?>x ditonton - <?= time_elapsed_string($video['tgl_upload']) ?></small>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-4 image-card py-4">
+                </a>
+            <?php endforeach; ?>
+            <!-- <div class="col-4 image-card py-4">
                 <img src="assets/img/dompetkecap.png" alt="" class="img-fluid">
                 <div class="d-flex align-items-start gap-3 mt-2">
                     <img src="assets/img/vaniprofil.png" alt="" class="uploader-img">
@@ -166,7 +193,7 @@ require "components/functions.php";
                         <small class="text-secondary fw-bold">115rb ditonton - 3 minggu yang lalu</small>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
 
         <!-- <table>

@@ -25,12 +25,21 @@ require "components/functions.php";
     <a href="lihat-profil.php"><i class="fa-solid fa-circle-chevron-left fs-4 mt-3"></i></a>
     <div id="video-added" class="border border-dark rounded-4 p-3 w-50">
       <h5 class="fw-bold">Unggah Video</h5>
+      <hr>
+      <div class="mb-3 mt-4">
+        <label for="video" class="form-label fw-bold d-block">Video*</label>
+        <input type="file" name="video">
+      </div>
+      <div class="mb-3 mt-4">
+        <label for="judul" class="form-label fw-bold">Judul*</label>
+        <input type="text" class="form-control small" id="judul" placeholder=""></input>
+      </div>
       <div class="mb-3 mt-4">
         <label for="deskripsi" class="form-label fw-bold">Deskripsi</label>
         <textarea type="text" class="form-control small" id="deskripsi" rows="4" placeholder="Tambahkan deskripsi video"></textarea>
       </div>
       <div class="mb-3">
-        <label for="link" class="form-label fw-bold">Tambahkan Link <i class="fa-solid fa-link"></i></label>
+        <label for="link" class="form-label fw-bold">Link Toko <i class="fa-solid fa-link"></i></label>
         <input type="text" class="form-control" id="link">
       </div>
       <div class="d-flex align-items-center justify-content-end gap-3">

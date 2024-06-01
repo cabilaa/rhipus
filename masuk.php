@@ -47,8 +47,9 @@ if (isset($_GET["logout"])) {
               if ($result->num_rows > 0) {
                 if ($password == $row['password']) {
                   $_SESSION['login'] = true;
-                  $_SESSION['id'] = $row['id'];
+                  $_SESSION['akun_id'] = $row['akun_id'];
                   $_SESSION['username'] = $row['username'];
+                  $_SESSION['image'] = $row['image'];
                   header("Location: index.php");
                 } else {
                   echo "
@@ -64,15 +65,15 @@ if (isset($_GET["logout"])) {
             ?>
             <div class="mb-3">
               <label for="username" class="form-label fw-bold text-white">Nama Pengguna</label>
-              <input type="text" class="form-control bg-white-50 border-0" id="username" name="username">
+              <input autocomplete="off" type="text" class="form-control bg-white-50 border-0" id="username" name="username">
             </div>
             <div class="mb-3">
               <label for="password" class="form-label fw-bold text-white">Kata Sandi</label>
-              <input type="password" class="form-control bg-white-50 border-0" id="password" name="password">
+              <input autocomplete="off" type="password" class="form-control bg-white-50 border-0" id="password" name="password">
             </div>
             <button type="submit" name="submit" class="btn button-secondary-80 rounded-pill px-5 py-2 fw-bold text-white d-block mx-auto mt-5">MASUK</button>
             <div class="d-flex align-items-center mt-3 gap-1 justify-content-center">
-              <p class="m-0 small text-white">Belum punya akun?</p><a href="daftar.html" class="small color-light-primary">Daftar</a>
+              <p class="m-0 small text-white">Belum punya akun?</p><a href="daftar.php" class="small color-light-primary">Daftar</a>
             </div>
           </form>
         </div>
